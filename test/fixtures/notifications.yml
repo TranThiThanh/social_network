@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  actor_id: 1
+  recipient_id: 1
+  conversation: one
+  description: MyString
+  notification_detail_url: MyString
+  isRead: false
+
+two:
+  actor_id: 1
+  recipient_id: 1
+  conversation: two
+  description: MyString
+  notification_detail_url: MyString
+  isRead: false
