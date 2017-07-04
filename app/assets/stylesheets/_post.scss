@@ -1,0 +1,79 @@
+.post-form {
+  width: 100% ;
+  position: relative;
+  word-wrap: break-word;
+  line-height: 1.28;
+}
+.post-form {
+  border: 1px solid #d3d6db;
+  border-left:  1px solid #355079;
+  padding-left: inherit;
+  .post-label, .post-submit {
+  background-color: #fff;
+  }
+  li {
+    display: inline-block;
+    padding-right: 10px;
+  }
+  .primary-btn {
+    background-color: #3a5795;
+  }
+
+  .post-label {
+    height: 80px;
+    color: #373e4d;
+    border-bottom: 1px solid #dcdee3;
+    margin-left: 10px;
+    padding: 10px 0 8px 12px;
+    font-weight: bold;
+    line-height: 16px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+
+  }
+
+  .post-submit {
+    height: 41px;
+    border-top: 1px solid #dcdee3;
+    padding: 8px;
+    position: relative;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    input {
+      padding-left: 16px;
+      padding-right: 16px;
+      margin-top: -43px;
+      position: absolute;
+      right: 8px;
+    }
+  }
+  .post-submit.shrink { display: none; }
+  .post-submit.expand { display: block; }
+  .post-textarea {
+    height: 200px;
+    position: relative;
+
+    textarea {
+      width: 85%;
+      font-size: 14px;
+      line-height: 20px;
+      word-wrap: break-word;
+      color: #373e4d;
+      border: none;
+      padding: 13px 12px 5px 12px;
+      height: 70px;
+      min-height: 45px;
+      margin-left: 10px;
+      resize: none;
+      overflow: hidden;
+      font-family: 'Helvetica Neue', Helvetica, sans-serif;
+      position: absolute;
+    }
+    img{
+      width:50px;
+      height:50px;
+    }
+  }
+  .post-textarea.shrink { height: 45px; }
+  .post-textarea.expand { height: 73px; }
+}
