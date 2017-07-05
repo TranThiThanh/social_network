@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170630035317) do
+ActiveRecord::Schema.define(version: 20170703025532) do
 
   create_table "activity_logs", force: :cascade do |t|
     t.integer "user_id"
@@ -45,20 +45,15 @@ ActiveRecord::Schema.define(version: 20170630035317) do
     t.string "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["post_id", "created_at"], name: "index_comments_on_post_id_and_created_at"
     t.index ["post_id"], name: "index_comments_on_post_id"
+    t.index ["user_id", "created_at"], name: "index_comments_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "conversations", force: :cascade do |t|
     t.integer "recipient_id"
     t.integer "sender_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "friendships", force: :cascade do |t|
-    t.integer "follower_id"
-    t.integer "followed_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -92,6 +87,7 @@ ActiveRecord::Schema.define(version: 20170630035317) do
     t.string "image_detail_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["post_id", "created_at"], name: "index_images_on_post_id_and_created_at"
     t.index ["post_id"], name: "index_images_on_post_id"
   end
 
@@ -101,8 +97,11 @@ ActiveRecord::Schema.define(version: 20170630035317) do
     t.integer "comment_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["comment_id", "created_at"], name: "index_likes_on_comment_id_and_created_at"
     t.index ["comment_id"], name: "index_likes_on_comment_id"
+    t.index ["post_id", "created_at"], name: "index_likes_on_post_id_and_created_at"
     t.index ["post_id"], name: "index_likes_on_post_id"
+    t.index ["user_id", "created_at"], name: "index_likes_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
@@ -151,6 +150,18 @@ ActiveRecord::Schema.define(version: 20170630035317) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_posts_on_user_id"
+    t.index [nil, "created_at"], name: "index_posts_on_follwed_id_and_created_at"
+    t.index [nil, "created_at"], name: "index_posts_on_follwer_id_and_created_at"
+  end
+
+  create_table "relationships", force: :cascade do |t|
+    t.integer "follower_id"
+    t.integer "followed_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["followed_id"], name: "index_relationships_on_followed_id"
+    t.index ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
+    t.index ["follower_id"], name: "index_relationships_on_follower_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -167,6 +178,7 @@ ActiveRecord::Schema.define(version: 20170630035317) do
     t.boolean "isActivity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
   end
 
   create_table "videos", force: :cascade do |t|
@@ -175,6 +187,7 @@ ActiveRecord::Schema.define(version: 20170630035317) do
     t.string "video_detail_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["post_id", "created_at"], name: "index_videos_on_post_id_and_created_at"
     t.index ["post_id"], name: "index_videos_on_post_id"
   end
 

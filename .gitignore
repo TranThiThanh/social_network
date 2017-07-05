@@ -45,3 +45,7 @@ bower.json
 
 # Ignore database configuration
 /config/database.yml
+
+config/settings.local.yml
+config/settings/*.local.yml
+config/environments/*.local.yml
