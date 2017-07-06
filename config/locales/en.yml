@@ -30,8 +30,11 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  controller:
+    message: "Invalid email/password combination"
   layouts:
-    application: "SocialNetwork"
+    holder: "Search Facebook"
+    application: "Facebook"
     name: "Hp min cuoi"
     edit: "Edit profile"
     home: "Home"
@@ -54,12 +57,17 @@ en:
     feeling: "Feeling/Activity"
     checkin: "Check in"
     think: "What's on your mind?"
+    setting: "Settings"
+    logout: "Log out"
   sessions:
     about: "About"
     contact: "Contact"
     help: "Help"
     signup: "Sign up"
     page: "Page"
+    login: "Log in"
+    title: "Go to Facebook home"
+    remember: "Remember me on this computer"
   static_pages:
     about: "About us"
     terms: "Terms of Service"
@@ -87,25 +95,26 @@ en:
     condition2: "Treat others as you would like others to treat you."
     condition3: "Don't treats others in ways you would not like to be treated."
     termination: "Termination"
-    first_line: "Please read these Terms of Service
-    ("Terms", "Terms and Conditions of Use") completely to use"
+    first_line: 'Please read these Terms of Service
+      ("Terms", "Terms and Conditions of Use") completely to use'
     second_line: "The term 'Facebook' or 'us' or 'we' refers to the owner
-    of the website. The term 'you' refers to the user or viewer of our website.
-     If you continue to use this website, you are agreeing to comply with and
-     be bound by the following Terms and Conditions of Use, which together
-     with our"
-     third_line: "govern Facebook's relationship with you in relation
-     to this website. If you disagree with any part of these Terms and
-     Conditions of Use, please do not use our website."
-     fourth_line: "The use of this website is subject to the following Terms:"
-     fifth_line: "We reserve the right to terminate or suspend your access to
-     the Site, immediately, without prior notice or liability, for
-     any reason whatsoever, including without limitation if you breach
-     the Terms."
-     sixth_line: "All provisions of the Terms which by their nature should
-     survive termination shall survive termination, including, without
-     limitation, ownership provisions, warranty disclaimers, indemnity
-     and limitations of liability."
+      of the website. The term 'you' refers to the user or viewer of our website.
+      If you continue to use this website, you are agreeing to comply with and
+      be bound by the following Terms and Conditions of Use, which together
+      with our"
+
+    third_line: "govern Facebook's relationship with you in relation
+      to this website. If you disagree with any part of these Terms and
+      Conditions of Use, please do not use our website."
+    fourth_line: "The use of this website is subject to the following Terms:"
+    fifth_line: "We reserve the right to terminate or suspend your access to
+      the Site, immediately, without prior notice or liability, for
+      any reason whatsoever, including without limitation if you breach
+      the Terms."
+    sixth_line: "All provisions of the Terms which by their nature should
+      survive termination shall survive termination, including, without
+      limitation, ownership provisions, warranty disclaimers, indemnity
+      and limitations of liability."
   privacy:
     line: "This privacy policy discloses the privacy practices for Facebook."
     information: "What information we collect?"
@@ -116,42 +125,42 @@ en:
     change: "Changes to our Privacy Policy"
     contact: "Contacting Us"
     first_line: "We collect information from you when you register on
-    our site and when you fill out your profile. Personally identifying
-    information collected include your name and email. Your email is hidden
-     from everyone, but your name and profile picture (if you provide one)
+      our site and when you fill out your profile. Personally identifying
+      information collected include your name and email. Your email is hidden
+      from everyone, but your name and profile picture (if you provide one)
       are shown to all Facebook users."
     second_line: "If you choose to register with an external service like
-    Facebook, we collect ONLY your first name, last name, email, and gender;
-    that is, exactly the information required to sign up for Facebook.
-    If you later log in with Facebook, only your email address will be used
-     to log you in."
+      Facebook, we collect ONLY your first name, last name, email, and gender;
+      that is, exactly the information required to sign up for Facebook.
+      If you later log in with Facebook, only your email address will be used
+      to log you in."
     third_line: "Other than the information you provided during registration
-    and at your profile, we keep no informtion about you. We store the
-    content you generate on Facebook (like posts or comments you make), but
-    we don't store your log in times, locations, IP addresses or any
-    information you don't explicitly create during your use of this service."
+      and at your profile, we keep no informtion about you. We store the
+      content you generate on Facebook (like posts or comments you make), but
+      we don't store your log in times, locations, IP addresses or any
+      information you don't explicitly create during your use of this service."
     fourth_line: "We use your email to log you into the website, send you
-    a one time welcome email, and later emails about your notifications. You
-    can disable receiving emails about notifications from your profile. You
-    can choose, from your profile, to share your Facebook created content
-    with everyone (that is, all Facebook users) or just your friends."
+      a one time welcome email, and later emails about your notifications. You
+      can disable receiving emails about notifications from your profile. You
+      can choose, from your profile, to share your Facebook created content
+      with everyone (that is, all Facebook users) or just your friends."
     fifth_line: "We do not share, rent, sell, trade, or otherwise transfer
-    any of your information with or to any third party including any
-    non-identifying data or any aggregate data."
+      any of your information with or to any third party including any
+      non-identifying data or any aggregate data."
     sixth_line: "You can change any information related to your profile
-    at anytime, including not providing any profile information. We do
-    however require that you always have the information used to sign up
-    (that is, your first name, last name, email, and gender)."
+      at anytime, including not providing any profile information. We do
+      however require that you always have the information used to sign up
+      (that is, your first name, last name, email, and gender)."
     seventh_line: "If for whatever reason you are not satisfied with Facebook,
-     you can delete your entire Facebook account from your profile and the
-     entirety of your activity will be erased. We will keep no record that
-     you ever used our service."
+      you can delete your entire Facebook account from your profile and the
+      entirety of your activity will be erased. We will keep no record that
+      you ever used our service."
     eighth_line: "We do have links to a couple of third party websites.
-    These third party sites have separate and independent privacy policies.
-    We therefore have no responsibility or liability for the content and
-    activity of these linked sites."
+      These third party sites have separate and independent privacy policies.
+      We therefore have no responsibility or liability for the content and
+      activity of these linked sites."
     ninth_line: "Any changes to our privacy policy will be posted on this
-    page."
+      page."
     tenth_line: "You may address any comments, concerns, or issues to the "
   login:
     button_submit: "Log In"
@@ -164,16 +173,16 @@ en:
     create_account: "Create an account"
   about:
     first_line: "Facebook is a personal project created to help with
-    learning web development. It was made as the final project of"
+      learning web development. It was made as the final project of"
     this_facebook: "This Facebook"
     rubyonrails: "Ruby on Rails"
     javascript: "JavaScript/jQuery"
     course: "courses"
     second_line: "Facebook is made to replicate some of the look and
-    functionality of Facebook, but is not affiliated with Facebook."
+      functionality of Facebook, but is not affiliated with Facebook."
     third_line: "We aim to be unobtrusive and privacy-minded,
-    storing no more than what you provide and allowing you to completely
-    delete an account whenever you choose. See our"
+      storing no more than what you provide and allowing you to completely
+      delete an account whenever you choose. See our"
     fourth_line: "for more details."
     fifth_line: "Facebook is"
     heroku: "hosted on Heroku"
@@ -182,6 +191,6 @@ en:
     learn: "To learn more about the features avaliable, please see the"
     document: "documentation on GitHub"
     comments: "Please leave any comments, feedback, concerns,
-    or questions you have on"
+      or questions you have on"
     peterpham: "PeterPham"
     tranthithanh: "TranThiThanh"

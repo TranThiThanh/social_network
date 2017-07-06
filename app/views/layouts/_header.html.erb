@@ -1,72 +1,75 @@
-<div class= "main-header">
+<div class="main-header">
   <div class="header-holder">
-    <div class="col-md-1">
-    </div>
+    <div class="col-md-1"></div>
     <div class="col-md-11">
-      <%= link_to "", "#" %>
-      <img id="icon" src="/assets/images.png" alt="Facebook">
-    <div class="header-form">
-      <input id="q" name="q" placeholder="Search Facebook" type="search">
-      <button class="search-btn" type="submit">
-        <img alt="Search icon" class="search-icon" src="/assets/search.png">
-      </button>
-    </div>
-    <div class="header-menu">
-      <ul>
-        <li>
-          <div class="header-profile" title="Profile">
-            <a href="#"><img alt="" class="v-sm-img" src="#" title="">
-            <span>Hp</span>
+      <img id="icon" src="/assets/facebook.png"
+        alt="<%= t "layouts.application" %>">
+      <div class="header-form">
+        <input id="q" name="q" placeholder="<%= t "layouts.holder" %>"
+          type="search">
+        <button class="search-btn" type="submit">
+          <img alt="<%= t "layouts.holder" %>" class="search-icon"
+            src="/assets/search.png">
+        </button>
+      </div>
+      <div class="header-menu">
+        <ul>
+          <li>
+            <div class="header-form" title="<%= t "layouts.profile" %>">
+              <%= image_tag @user.avatar.url if @user.avatar? %>
+              <span><%= current_user.username %></span>
+            </div>
+          </li>
+          <li><a href="#"><%= t "layouts.home" %></a></li>
+          <li>
+            <button class="btn btn-default dropdown-toggle friend-btn"
+              id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+              <span class="badge">
+                0
+              </span>
+            </button>
+          </li>
+          <li>
+            <button class="btn btn-default dropdown-toggle message-btn"
+              id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              <span class="glyphicon glyphicon-envelope" aria-hidden="true">
+              </span>
+              <span class="badge">
+                0
+              </span>
+            </button>
+          </li>
+          <li>
+            <button class="btn btn-default dropdown-toggle notification-btn"
+              id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
+              <span class="badge">
+                0
+              </span>
+            </button>
+          </li>
+          <li>
+            <button class="btn btn-default dropdown-toggle help-btn"
+              id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+            </button>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <b class="glyphicon glyphicon-triangle-bottom"></b>
             </a>
-          </div>
-        </li>
-        <li><a href="#"><%= t"layouts.home" %></a></li>
-        <li>
-          <button class="btn btn-default dropdown-toggle friend-btn"
-          id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
-          aria-expanded="true">
-          <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-          <span class="badge">
-            0
-          </span>
-          </button>
-        </li>
-        <li>
-          <button class="btn btn-default dropdown-toggle message-btn"
-          id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
-          aria-expanded="true">
-          <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
-          <span class="badge">
-            0
-          </span>
-          </button>
-        </li>
-        <li>
-          <button class="btn btn-default dropdown-toggle notification-btn"
-          id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
-          aria-expanded="true">
-          <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
-          <span class="badge">
-            0
-          </span>
-          </button>
-        </li>
-        <li>
-          <button class="btn btn-default dropdown-toggle help-btn"
-          id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
-          aria-expanded="true">
-          <span class="glyphicon glyphicon-question-sign" aria-hidden="true">
-          </span>
-        </li>
-        <li>
-          <button class="btn btn-default dropdown-toggle triangle-btn"
-          id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
-          aria-expanded="true">
-          <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true">
-          </span>
-        </li>
-      </ul>
-    </div>
+            <ul class="dropdown-menu">
+              <li><%= link_to t("layouts.profile"), current_user %></li>
+              <li><%= link_to t("layouts.setting"), "#" %></li>
+              <li class="divider"></li>
+              <li>
+                <%= link_to t("layouts.logout"), logout_path, method: :delete %>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
