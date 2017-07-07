@@ -60,3 +60,128 @@ en:
     help: "Help"
     signup: "Sign up"
     page: "Page"
+  static_pages:
+    about: "About us"
+    terms: "Terms of Service"
+    privacy: "Privacy Policy"
+    contact_help: "Contact or Help"
+  shared:
+    facebook: "facebook"
+    email: "Email or Phone"
+    password: "Password"
+    remember_me: "Keep me logged in?"
+    forgot_password: "Forgotten account?"
+    footer: "Facebook &copy; 2017"
+  users:
+    connect: "Connect"
+    female: "Female"
+    male: "Male"
+    birthday: "Birthday"
+    title: "Facebook helps you connect and share with the people in your life."
+    create: "Create an account"
+    free: "It's free and always will be."
+  terms:
+    last_update: "Last Updated: June 22, 2017"
+    term_condition: "Terms and Conditions of Use"
+    condition1: "Don't use this website to do anything illegal or harmful."
+    condition2: "Treat others as you would like others to treat you."
+    condition3: "Don't treats others in ways you would not like to be treated."
+    termination: "Termination"
+    first_line: "Please read these Terms of Service
+    ("Terms", "Terms and Conditions of Use") completely to use"
+    second_line: "The term 'Facebook' or 'us' or 'we' refers to the owner
+    of the website. The term 'you' refers to the user or viewer of our website.
+     If you continue to use this website, you are agreeing to comply with and
+     be bound by the following Terms and Conditions of Use, which together
+     with our"
+     third_line: "govern Facebook's relationship with you in relation
+     to this website. If you disagree with any part of these Terms and
+     Conditions of Use, please do not use our website."
+     fourth_line: "The use of this website is subject to the following Terms:"
+     fifth_line: "We reserve the right to terminate or suspend your access to
+     the Site, immediately, without prior notice or liability, for
+     any reason whatsoever, including without limitation if you breach
+     the Terms."
+     sixth_line: "All provisions of the Terms which by their nature should
+     survive termination shall survive termination, including, without
+     limitation, ownership provisions, warranty disclaimers, indemnity
+     and limitations of liability."
+  privacy:
+    line: "This privacy policy discloses the privacy practices for Facebook."
+    information: "What information we collect?"
+    purpose: "What we use your information for?"
+    subject: "Who we share your information with?"
+    control: "Control over your information"
+    third_party: "Third party links"
+    change: "Changes to our Privacy Policy"
+    contact: "Contacting Us"
+    first_line: "We collect information from you when you register on
+    our site and when you fill out your profile. Personally identifying
+    information collected include your name and email. Your email is hidden
+     from everyone, but your name and profile picture (if you provide one)
+      are shown to all Facebook users."
+    second_line: "If you choose to register with an external service like
+    Facebook, we collect ONLY your first name, last name, email, and gender;
+    that is, exactly the information required to sign up for Facebook.
+    If you later log in with Facebook, only your email address will be used
+     to log you in."
+    third_line: "Other than the information you provided during registration
+    and at your profile, we keep no informtion about you. We store the
+    content you generate on Facebook (like posts or comments you make), but
+    we don't store your log in times, locations, IP addresses or any
+    information you don't explicitly create during your use of this service."
+    fourth_line: "We use your email to log you into the website, send you
+    a one time welcome email, and later emails about your notifications. You
+    can disable receiving emails about notifications from your profile. You
+    can choose, from your profile, to share your Facebook created content
+    with everyone (that is, all Facebook users) or just your friends."
+    fifth_line: "We do not share, rent, sell, trade, or otherwise transfer
+    any of your information with or to any third party including any
+    non-identifying data or any aggregate data."
+    sixth_line: "You can change any information related to your profile
+    at anytime, including not providing any profile information. We do
+    however require that you always have the information used to sign up
+    (that is, your first name, last name, email, and gender)."
+    seventh_line: "If for whatever reason you are not satisfied with Facebook,
+     you can delete your entire Facebook account from your profile and the
+     entirety of your activity will be erased. We will keep no record that
+     you ever used our service."
+    eighth_line: "We do have links to a couple of third party websites.
+    These third party sites have separate and independent privacy policies.
+    We therefore have no responsibility or liability for the content and
+    activity of these linked sites."
+    ninth_line: "Any changes to our privacy policy will be posted on this
+    page."
+    tenth_line: "You may address any comments, concerns, or issues to the "
+  login:
+    button_submit: "Log In"
+  signup:
+    first_name: "First name"
+    surname: "Surname"
+    mobile: "Mobile number or email address"
+    new_password: "New password"
+    password_confirmation: "Password confirmation"
+    create_account: "Create an account"
+  about:
+    first_line: "Facebook is a personal project created to help with
+    learning web development. It was made as the final project of"
+    this_facebook: "This Facebook"
+    rubyonrails: "Ruby on Rails"
+    javascript: "JavaScript/jQuery"
+    course: "courses"
+    second_line: "Facebook is made to replicate some of the look and
+    functionality of Facebook, but is not affiliated with Facebook."
+    third_line: "We aim to be unobtrusive and privacy-minded,
+    storing no more than what you provide and allowing you to completely
+    delete an account whenever you choose. See our"
+    fourth_line: "for more details."
+    fifth_line: "Facebook is"
+    heroku: "hosted on Heroku"
+    source: "and the source code can be"
+    github: "viewed on GitHub"
+    learn: "To learn more about the features avaliable, please see the"
+    document: "documentation on GitHub"
+    comments: "Please leave any comments, feedback, concerns,
+    or questions you have on"
+    peterpham: "PeterPham"
+    tranthithanh: "TranThiThanh"
