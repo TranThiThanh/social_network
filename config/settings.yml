@@ -1,6 +1,8 @@
 username: 50
 email: 50
 password: 6
+size_avatar: 50
+remembers: "1"
 width: 537
 height: 195
 start_year: 25

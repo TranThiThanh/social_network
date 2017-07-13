@@ -3,7 +3,7 @@
 .sidebar-container {
   line-height: 24px;
   font-size: 12px;
-  margin-top: 70px;
+  margin-top: 50px;
   li {
     &:hover {
       background-color: #dfdfdf;
@@ -25,11 +25,12 @@
       text-decoration: none;
     }
   }
-  .sm-profile a {
+  .sm-profile
+    a {
     display: inline-block;
     padding-left: 0;
     position: relative;
-    top: -5px;
+    top: 2px;
   }
   img{
      width:40px;
@@ -71,5 +72,4 @@
     margin: 0px;
     border-bottom: 1px solid #bbb;
   }
-
 }

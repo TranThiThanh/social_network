@@ -2,59 +2,60 @@
   <div class="col-md-1"></div>
   <div class="col-md-2">
     <div class="sm-profile">
-      <img src="/assets/images.png" alt="Facebook">
+      <img src="/assets/images.png" alt="<%= t "layouts.application" %>">
       <div class="info">
-        <%= link_to t("layouts.name"), "#" %>
+        <%= link_to current_user.username %>
         <%= link_to t("layouts.edit"), "#" %>
       </div>
       <ul>
         <li>
-          <img src="/assets/newfeed.png" alt="Newsfeed">
+          <img src="/assets/newfeed.png" alt="<%= t "layouts.post" %>">
           <%= link_to t("layouts.post"), "#" %>
         </li>
         <li>
-          <img src="/assets/timeline.png" alt="Timeline">
+          <img src="/assets/timeline.png" alt="<%= t "layouts.timeline" %>">
           <%= link_to t("layouts.timeline"), "#" %>
         </li>
         <li>
-          <img src="/assets/friend.png" alt="All user">
+          <img src="/assets/friend.png" alt="<%= t "layouts.user" %>">
           <%= link_to t("layouts.user"), "#" %>
         </li>
         <li>
-          <%= link_to "", "#" %>
-          <img alt="" class="v-sm-img" src="#" title="Profile"><%= t"layouts.profile" %>
+          <img alt="" class="v-sm-img" src="#"
+            title="<%= t "layouts.profile" %>"><%= t"layouts.profile" %>
         </li>
         <li>
-          <img src="/assets/friends.png" alt="Friends">
+          <img src="/assets/friends.png" alt="<%= t "layouts.friends" %>">
           <%= link_to t("layouts.friends"), "#" %>
         </li>
         <li>
-          <img src="/assets/add_friend.png" alt="Friends Requests">
+          <img src="/assets/add_friend.png" alt="<%= t "layouts.frequest" %>">
           <%= link_to t("layouts.frequest"), "#" %>
         </li>
         <li>
-          <img src="/assets/group.jpg" alt="Group">
+          <img src="/assets/group.jpg" alt="<%= t "layouts.group" %>">
           <%= link_to t("layouts.group"), "#" %>
         </li>
         <li>
-          <img src="/assets/notification.png" alt="Notification">
+          <img src="/assets/notification.png"
+            alt="<%= t "layouts.notification" %>">
           <%= link_to t("layouts.notification"), "#" %>
         </li>
         <li class="divider"></li>
         <li>
-          <img src="/assets/about.png" alt="About">
+          <img src="/assets/about.png" alt="<%= t "layouts.about" %>">
           <%= link_to t("layouts.about"), "#" %>
         </li>
         <li>
-          <img src="/assets/help.png" alt="Help">
+          <img src="/assets/help.png" alt="<%= t "layouts.help" %>">
           <%= link_to t("layouts.help"), "#" %>
         </li>
         <li>
-          <img src="/assets/privacy.png" alt="Privacy">
+          <img src="/assets/privacy.png" alt="<%= t "layouts.privacy" %>">
           <%= link_to t("layouts.privacy"), "#" %>
         </li>
         <li>
-          <img src="/assets/download.png" alt="Service">
+          <img src="/assets/download.png" alt="<%= t "layouts.service" %>">
           <%= link_to t("layouts.service"), "#" %>
         </li>
         <li class="divider"></li>
@@ -62,48 +63,4 @@
       </ul>
     </div>
   </div>
-  <div class="col-md-5">
-    <div class="post-form">
-      <ul>
-        <li>
-          <span class="uiIconText _5qtp">
-            <i class="glyphicon glyphicon-pencil"></i><%= t"layouts.create" %>
-          </span>
-        </li>
-        <li>
-          <span class="uiIconText _5qtp">
-            <i class="glyphicon glyphicon-picture"></i><%= t"layouts.image" %>
-          </span>
-        </li>
-      </ul>
-      <div class="post-textarea expand">
-        <img src="/assets/images.png" alt="user">
-        <textarea title="<%= t"layouts.think" %>" class="_3en1 _480e"
-        name="xhpc_message" placeholder="What's on your mind?">
-        </textarea>
-      </div>
-      <div class="post-submit expand">
-      <ul>
-        <li>
-          <span class="uiIconText _5qtp">
-            <i class="glyphicon glyphicon-facetime-video"></i><%= t"layouts.video" %>
-          </span>
-        </li>
-        <li class="dividers"></li>
-        <li>
-          <span class="uiIconText _5qtp">
-            <img src="/assets/smiles.png" alt="user"><%= t"layouts.feeling" %>
-          </span>
-        </li>
-        <li>
-          <span class="uiIconText _5qtp">
-            <img src="/assets/location.png" alt="user"><%= t"layouts.checkin" %>
-          </span>
-        </li>
-      </ul>
-      <input class="primary-btn" name="commit" type="submit" value="Post">
-      </div>
-    </div>
-  </div>
-  <div class="col-md-4"></div>
 </div>
