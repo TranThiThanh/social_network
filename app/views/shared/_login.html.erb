@@ -1,0 +1,45 @@
+<header class="login-header">
+  <div class="login-header-content">
+    <div class="login-logo-container">
+      <%= image_tag "facebook.png", alt: "Facebook", class: "login-logo",
+        :width => Settings.width ,
+        :height => Settings.height %>
+      <h1><%= t "shared.facebook" %></h1>
+    </div>
+    <%= form_for(@user), class: "login-form-container" do |f| %>
+    <table class="login-form">
+      <tbody>
+        <tr>
+          <td>
+            <%= f.label :email , t("shared.email") %>
+          </td>
+          <td>
+            <%= f.label :password , t("shared.password") %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <%= f.email_field :email, autofocus: true %>
+          </td>
+          <td>
+            <%= f.password_field :password, autocomplete: "off" %>
+          </td>
+          <td>
+            <%= f.submit t("login.button_submit") %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <%= f.check_box :remember_me %>
+            <%= f.label :keep_me_logged_in, t("shared.remember_me") %>
+          </td>
+          <td>
+            <%= link_to t("shared.forgot_password"), class:
+            "forgotpassword" %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <% end %>
+  </div>
+</header>

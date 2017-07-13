@@ -1,0 +1,46 @@
+<div id="signup">
+  <section class="main-bkg">
+    <div class="main-container">
+      <div class="col-left">
+        <div class="left-title">
+          <%= t "users.title" %>
+        </div>
+        <%= image_tag "connect.png", alt: t( "users.connect") %>
+      </div>
+      <div class="title-col-right">
+        <div class="title-right-up">
+          <h1 id="create"><%= t "users.create" %></h1>
+          <div class="free-style">
+            <%= t "users.free" %>
+          </div>
+        </div>
+      </div>
+      <div class="form">
+        <%= form_for(@user), class: "new_user" do |f| %>
+        <%= f.text_field :first_name, class: "first-name", placeholder:
+        t("signup.first_name") %>
+        <%= f.text_field :last_name, class: "surname", placeholder:
+        t("signup.surname") %>
+        <%= f.email_field :email, class: "email", placeholder:
+        t("signup.mobile") %>
+        <%= f.password_field :password, class: "password", placeholder:
+        t("signup.new_password") %>
+        <%= f.password_field :password_confirmation, class:
+        "password-confirmation", placeholder: t("signup.password_confirmation")%>
+        <div class="birthday"><%= t "users.birthday" %></div>
+        <div class="_5k_5">
+          <span class="_5k_4">
+            <%= f.date_select :birthday, order: [:year, :month, :day],
+            prompt: { day: "Day", month: "Month", year: "Year" },
+            start_year: Date.today.year - Settings.start_year,
+            end_year: Date.today.year + Settings.end_year %>
+          </span>
+        </div>
+        <%= f.label :gender %>
+        <%= f.select :gender, [["Male",1], ["Female",2], ["Other",3]]%>
+        <%= f.submit t("signup.create_account"), id: "button" %>
+        <% end %>
+      </div>
+    </div>
+  </section>
+</div>

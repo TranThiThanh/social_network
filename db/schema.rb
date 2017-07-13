@@ -141,7 +141,10 @@ ActiveRecord::Schema.define(version: 20170703025532) do
     t.boolean "isRead"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["actor_id", "recipient_id"], name: "index_notifications_on_actor_id_and_recipient_id", unique: true
+    t.index ["actor_id"], name: "index_notifications_on_actor_id"
     t.index ["conversation_id"], name: "index_notifications_on_conversation_id"
+    t.index ["recipient_id"], name: "index_notifications_on_recipient_id"
   end
 
   create_table "posts", force: :cascade do |t|
