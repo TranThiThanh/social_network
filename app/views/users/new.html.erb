@@ -1,4 +1,4 @@
-<div id="signup">
+<div class="signup">
   <section class="main-bkg">
     <div class="main-container">
       <div class="col-left">
@@ -9,14 +9,14 @@
       </div>
       <div class="title-col-right">
         <div class="title-right-up">
-          <h1 id="create"><%= t "users.create" %></h1>
+          <h1 class="create"><%= t "users.create" %></h1>
           <div class="free-style">
             <%= t "users.free" %>
           </div>
         </div>
       </div>
       <div class="form">
-        <%= form_for(@user, url: signup_path) do |f| %>
+        <%= form_for @user, url: signup_path do |f| %>
           <%= render "shared/error_messages" %>
           <%= f.text_field :first_name, class: "inputbody in1",
             placeholder: t("signup.first_name") %>
@@ -34,13 +34,14 @@
           <div class="formbox">
             <span class="formbox">
               <%= f.date_select :birthday, order: [:year, :month, :day],
-                prompt: { day: "Day", month: "Month", year: "Year" },
+                prompt: { day: Settings.day, month: Settings.month,
+                year: Settings.year },
                 start_year: Date.today.year - Settings.start_year,
                 end_year: Date.today.year + Settings.end_year %>
             </span>
           </div>
           <div class="formbox">
-            <%= f.submit t("signup.create_account"), id: "button" %>
+            <%= f.submit t("signup.create_account"), class: "button" %>
           </div>
         <% end %>
       </div>

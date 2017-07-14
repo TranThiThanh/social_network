@@ -1,0 +1,60 @@
+<%= render "layouts/banner" %>
+<% provide :title, t("profile.show") %>
+<div class="profile-container">
+  <%= render "layouts/sidebar" %>
+  <div class="col-md-10">
+    <h1 class="profile"><%= t "profile.show" %></h1>
+    <div class="row">
+      <div class="col-md-offset-4">
+        <%= form_for @user do |f| %>
+          <table>
+            <tr>
+              <th><%= f.label :username %></th>
+              <td><%= @user.username %></td>
+            </tr>
+            <tr>
+              <th><%= f.label :first_name %></th>
+              <td><%= @user.first_name %></td>
+            </tr>
+            <tr>
+              <th><%= f.label :last_name %></th>
+              <td><%= @user.last_name %></td>
+            </tr>
+            <tr>
+              <th><%= f.label :email %></th>
+              <td><%= @user.email %></td>
+            </tr>
+            <tr>
+              <th><%= f.label :address %></th>
+              <td><%= @user.address %></td>
+            </tr>
+            <tr>
+              <th><%= f.label :job %></th>
+              <td><%= @user.job %></td>
+            </tr>
+            <tr>
+              <th><%= f.label :phone %></th>
+              <td><%= @user.phone %></td>
+            </tr>
+            <tr>
+              <th><%= f.label :gender %></th>
+              <td><%= @user.gender %></td>
+            </tr>
+            <tr>
+              <th><%= f.label :birthday %></th>
+              <td><%= @user.birthday %></td>
+            </tr>
+          </table>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-md-offset-4">
+      <button class="btn">
+        <%= link_to t("profile.back"), @user %>
+      </button>
+      <button class="btn">
+        <%= link_to t("profile.edit"), edit_user_path(current_user) %>
+      </button>
+    </div>
+  </div>
+</div>

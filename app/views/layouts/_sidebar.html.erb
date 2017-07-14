@@ -2,7 +2,7 @@
   <div class="col-md-1"></div>
   <div class="col-md-2">
     <div class="sm-profile">
-      <img src="/assets/images.png" alt="<%= t "layouts.application" %>">
+      <%= image_tag @user.avatar %>
       <div class="info">
         <%= link_to current_user.username %>
         <%= link_to t("layouts.edit"), "#" %>
@@ -18,7 +18,7 @@
         </li>
         <li>
           <img src="/assets/friend.png" alt="<%= t "layouts.user" %>">
-          <%= link_to t("layouts.user"), "#" %>
+          <%= link_to t("layouts.user"), users_path %>
         </li>
         <li>
           <img alt="" class="v-sm-img" src="#"
@@ -44,19 +44,19 @@
         <li class="divider"></li>
         <li>
           <img src="/assets/about.png" alt="<%= t "layouts.about" %>">
-          <%= link_to t("layouts.about"), "#" %>
+          <%= link_to t("layouts.about"), about_path %>
         </li>
         <li>
           <img src="/assets/help.png" alt="<%= t "layouts.help" %>">
-          <%= link_to t("layouts.help"), "#" %>
+          <%= link_to t("layouts.help"), help_path %>
         </li>
         <li>
           <img src="/assets/privacy.png" alt="<%= t "layouts.privacy" %>">
-          <%= link_to t("layouts.privacy"), "#" %>
+          <%= link_to t("layouts.privacy"), privacy_path %>
         </li>
         <li>
           <img src="/assets/download.png" alt="<%= t "layouts.service" %>">
-          <%= link_to t("layouts.service"), "#" %>
+          <%= link_to t("layouts.service"), terms_path %>
         </li>
         <li class="divider"></li>
         <li><%= link_to t("layouts.logout"), "#", method: :delete %></li>

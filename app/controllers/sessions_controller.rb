@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       redirect_to user
     else
       flash[:danger] = t "controller.message"
-      render "login"
+      redirect_to root_url
     end
   end
 

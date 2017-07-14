@@ -1,11 +1,7 @@
 class UsersController < ApplicationController
+  before_action :load_user, except: [:index, :create, :new]
+
   def show
-    @user = User.find_by id: params[:id]
-    if @user.blank?
-      render "sessions/login"
-    else
-      render "users/show"
-    end
   end
 
   def new
@@ -23,10 +19,51 @@ class UsersController < ApplicationController
     end
   end
 
+  def index
+    @users = User.all.alphabetize.paginate page: params[:page],
+      per_page: Settings.number_of_page
+  end
+
+  def edit
+  end
+
+  def update
+    if @user.update_attributes user_params
+      flash[:success] = t "controller.update"
+      redirect_to profile_path
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    if @user.destroy
+      flash[:success] = t "controller.delete"
+      redirect_to root_url
+    else
+      flash[:danger] = t "controller.cannot"
+      redirect_to profile_path
+    end
+  end
+
   private
 
   def user_params_signup
     params.require(:user).permit :first_name, :last_name, :username, :email,
       :password, :password_confirmation, :birthday
+  end
+
+  def user_params
+    params.require(:user).permit :username, :first_name, :last_name, :email,
+      :password, :password_confirmation, :address, :phone, :job, :birthday,
+      :gender, :avatar, :cover
+  end
+
+  def load_user
+    @user = User.find_by id: params[:id]
+    if @user.blank?
+      flash[:danger] = t "controller.not_found_user"
+      redirect_to root_url
+    end
   end
 end
