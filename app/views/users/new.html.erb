@@ -1,0 +1,50 @@
+<div id="signup">
+  <section class="main-bkg">
+    <div class="main-container">
+      <div class="col-left">
+        <div class="left-title">
+          <%= t "users.title" %>
+        </div>
+        <%= image_tag "connect.png", alt: t( "users.connect") %>
+      </div>
+      <div class="title-col-right">
+        <div class="title-right-up">
+          <h1 id="create"><%= t "users.create" %></h1>
+          <div class="free-style">
+            <%= t "users.free" %>
+          </div>
+        </div>
+      </div>
+      <div class="form">
+        <%= form_for(@user, url: signup_path) do |f| %>
+          <%= render "shared/error_messages" %>
+          <%= f.text_field :first_name, class: "inputbody in1",
+            placeholder: t("signup.first_name") %>
+          <%= f.text_field :last_name, class: "inputbody in1 fr",
+            placeholder: t("signup.surname") %>
+          <%= f.text_field :username, class: "inputbody in2",
+            placeholder: t("signup.us_name") %>
+          <%= f.email_field :email, class: "inputbody in2",
+            placeholder: t("signup.email") %>
+          <%= f.password_field :password, class: "inputbody in2",
+            placeholder: t("signup.new_password") %>
+          <%= f.password_field :password_confirmation, class: "inputbody in2",
+            placeholder: t("signup.password_confirmation")%>
+          <div class="formbox"><%= t "users.birthday" %></div>
+          <div class="formbox">
+            <span class="formbox">
+              <%= f.date_select :birthday, order: [:year, :month, :day],
+                prompt: { day: "Day", month: "Month", year: "Year" },
+                start_year: Date.today.year - Settings.start_year,
+                end_year: Date.today.year + Settings.end_year %>
+            </span>
+          </div>
+          <div class="formbox">
+            <%= f.submit t("signup.create_account"), id: "button" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </section>
+</div>
+<%= render partial: "shared/footer" %>
