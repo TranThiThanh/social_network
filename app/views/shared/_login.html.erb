@@ -5,7 +5,6 @@
         :width => Settings.width ,
         :height => Settings.height %>
       <h1><%= t "shared.facebook" %></h1>
-      <%= link_to t("sessions.signup"), "#", class: "btn btn-primary" %>
     </div>
     <%= form_for(:session, url: login_path,
       class: "login-form-container") do |f| %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170707031413) do
+ActiveRecord::Schema.define(version: 20170714103159) do
 
   create_table "activity_logs", force: :cascade do |t|
     t.integer "user_id"
@@ -141,10 +141,7 @@ ActiveRecord::Schema.define(version: 20170707031413) do
     t.boolean "isRead"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["actor_id", "recipient_id"], name: "index_notifications_on_actor_id_and_recipient_id", unique: true
-    t.index ["actor_id"], name: "index_notifications_on_actor_id"
     t.index ["conversation_id"], name: "index_notifications_on_conversation_id"
-    t.index ["recipient_id"], name: "index_notifications_on_recipient_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -172,16 +169,20 @@ ActiveRecord::Schema.define(version: 20170707031413) do
     t.string "password_digest"
     t.string "username"
     t.datetime "birthday"
-    t.integer "gender"
+    t.string "gender"
     t.string "job"
     t.string "phone"
     t.string "address"
     t.string "avatar"
     t.string "cover"
-    t.boolean "isActivity"
+    t.boolean "activated"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "remember_digest"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "activation_digest"
+    t.datetime "activated_at"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
