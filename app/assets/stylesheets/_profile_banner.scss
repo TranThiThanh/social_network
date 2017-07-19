@@ -1,0 +1,84 @@
+.cover {
+  position: relative;
+  .cover-img {
+    background-color: #333333;
+    position: relative;
+    margin-top: -1px;
+    height: 400px;
+    overflow: hidden;
+
+    img {
+      height: 100%;
+      width: 100%
+    }
+  }
+
+  .profile-img {
+    background-color: #fff;
+    position: absolute;
+    height: 180px;
+    width: 160px;
+    padding: 5px 5px;
+    left: 15px;
+    bottom: 10px;
+    border: 1px solid #ccc;
+    background-color: white;
+    overflow: hidden;
+    z-index: 2;
+
+    img {
+      height: 100%;
+      width: 160px;
+    }
+  }
+  .upload{
+    position: relative;
+    margin-top: -100px;
+    float: right;
+    z-index: 2;
+  }
+  .cover-name {
+    position: absolute;
+    left: 200px;
+    bottom: 70px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+
+    h1 {
+      color: white;
+    }
+  }
+  .banner-bottom {
+  background-color: #fff;
+  height: 43px;
+  border: 1px solid #d3d6db;
+  border-top: none;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+
+    ul {
+      margin-left: 200px;
+    }
+    li {
+      display: inline-block;
+      border-right: 1px solid #e9eaed;
+      &:first-child {
+        border-left: 1px solid #e9eaed;
+      }
+    }
+    a {
+      display: inline-block;
+      padding: 0 17px;
+      height: 42px;
+      line-height: 42px;
+      color: #3a5795;
+      font-size: 14px;
+      font-weight: bold;
+      text-decoration: none;
+      &:hover {
+        background-color: #000;
+        text-decoration: none;
+      }
+    }
+
+  }
+}

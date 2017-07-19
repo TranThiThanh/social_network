@@ -1,0 +1,26 @@
+<%= render "layouts/header" %>
+<div class="cover">
+  <div class= "cover-img">
+    <%= image_tag @user.cover %>
+  </div>
+  <div class="profile-img">
+    <%= image_tag @user.avatar %>
+  </div>
+  <div class= "upload">
+    <%= form_for @user do |f| %>
+      <%= f.file_field :cover, accept: t("layouts.accept") %>
+      <%= f.submit t("users.save") %>
+    <% end %>
+  </div>
+  <div class="cover-name">
+    <h1><%= link_to current_user.username %></h1>
+  </div>
+  <div class="banner-bottom">
+  <ul>
+    <li>
+      <%= link_to t("layouts.timeline"), "#" %>
+      <%= link_to t("layouts.about"), "#" %>
+    </li>
+  </ul>
+  </div>
+</div>

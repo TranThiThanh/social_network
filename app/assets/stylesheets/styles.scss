@@ -21,6 +21,9 @@ h1 {
   font-weight: bold;
   font-size: 36px;
 }
+.profile{
+  margin-top: -550px;
+}
 
 .left-title {
   color: #0e385f;
@@ -41,7 +44,7 @@ h4 {
   font-family: inherit;
 }
 
-#signup {
+.signup {
 
   .main-bkg {
     background-color: #eff2f7;
@@ -75,7 +78,7 @@ h4 {
     padding-bottom: 20px;
   }
 
-  #create{
+  .create{
     color: #333;
   }
   .free-style {
@@ -109,7 +112,7 @@ h4 {
     margin: 10px auto;
   }
 
-  #button {
+  .button {
     min-width: 210px;
     padding: 7px 20px;
     text-align: center;
@@ -196,17 +199,6 @@ h4 {
   border-spacing: 15px 4px;
   float: right;
   margin-top: -75px;
-
-  #remember_me {
-    width: 11px;
-    height: 11px;
-    padding: 0;
-    margin: 0;
-    top: -2px;
-    position: relative;
-    vertical-align: bottom;
-    font-weight: normal;
-  }
 
   label {
     font-family: Helvetica, Arial, sans-serif;

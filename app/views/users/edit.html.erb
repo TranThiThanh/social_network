@@ -1,0 +1,71 @@
+<%= render "layouts/banner" %>
+<% provide :title, t("layouts.edit") %>
+<div class="profile-container">
+  <%= render "layouts/sidebar" %>
+  <div class="col-md-10">
+    <h1 class="profile"><%= t "user.updated" %></h1>
+    <div class="row">
+      <div class="col-md-offset-4">
+        <%= form_for @user do |f| %>
+          <%= render "shared/error_messages" %>
+
+          <%= f.label :username %>
+          <%= f.text_field :username, class: "form-control" %>
+
+          <%= f.label :first_name %>
+          <%= f.text_field :first_name, class: "form-control" %>
+
+          <%= f.label :last_name %>
+          <%= f.text_field :last_name, class: "form-control" %>
+
+          <%= f.label :email %>
+          <%= f.email_field :email, class: "form-control" %>
+
+          <%= f.label :password %>
+          <%= f.password_field :password, class: "form-control" %>
+
+          <%= f.label :password_confirmation %>
+          <%= f.password_field :password_confirmation, class: "form-control" %>
+
+          <%= f.label :address %>
+          <%= f.text_field :address, class: "form-control" %>
+
+          <%= f.label :phone %>
+          <%= f.text_field :phone, class: "form-control" %>
+
+          <%= f.label :job %>
+          <%= f.text_field :job, class: "form-control" %>
+
+          <%= f.label :birthday %>
+          <%= f.date_select :birthday, order: [:year, :month, :day],
+            prompt: { day: Settings.day, month: Settings.month,
+            year: Settings.year },
+            start_year: Date.today.year - Settings.start_year,
+            end_year: Date.today.year + Settings.end_year %>
+          <p>
+          <%= f.label :gender %>
+          <span data-type="radio" class="spanpad">
+            <%= f.radio_button :gender, "female", class: "m0" %>
+            <%= f.label :gender_female, t("users.female"), class: "gender" %>
+            <%= f.radio_button :gender, "male", class: "m0" %>
+            <%= f.label :gender_male, t("users.male"), class: "gender" %>
+          </span>
+          <p>
+          <%= f.label :avatar%>
+          <%= f.file_field :avatar, accept: t("layouts.accept") %>
+          <p>
+          <div class="col-md-offset-3">
+            <button class="btn">
+              <%= link_to t("profile.back"), profile_path %>
+            </button>
+            <%= f.submit t("users.save"), class: "btn" %>
+            <button class="btn">
+              <%= link_to t("user.destroy"), @user, method: :delete,
+                data: { confirm: t("users.confirm") } %>
+            </button>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

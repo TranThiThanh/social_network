@@ -16,7 +16,7 @@
         <ul>
           <li>
             <div class="header-form" title="<%= t "layouts.profile" %>">
-              <%= image_tag @user.avatar.url if @user.avatar? %>
+              <%= image_tag @user.avatar %>
               <span><%= current_user.username %></span>
             </div>
           </li>
@@ -61,7 +61,9 @@
             </a>
             <ul class="dropdown-menu">
               <li><%= link_to t("layouts.profile"), current_user %></li>
-              <li><%= link_to t("layouts.setting"), "#" %></li>
+              <li>
+                <%= link_to t("layouts.setting"), profile_path(current_user) %>
+              </li>
               <li class="divider"></li>
               <li>
                 <%= link_to t("layouts.logout"), logout_path, method: :delete %>

@@ -33,9 +33,13 @@ en:
   controller:
     message: "Invalid email/password combination"
     flashs: "Please check your email to activate your account."
+    not_found_profile: "Profile isn't found"
+    not_found_user: "User isn't found"
     success: "Account activated!"
     unsuccess: "Invalid activation link"
     delete: "User deleted"
+    update: "Profile updated"
+    cannot: "Can not delete"
   mailer:
     email: "Account activation"
     password: "Password reset"
@@ -76,6 +80,10 @@ en:
     think: "What's on your mind?"
     setting: "Settings"
     logout: "Log out"
+    accept: "image/jpeg,image/gif,image/png"
+  profile:
+    show: "Show your profile"
+    back: "Back"
   sessions:
     about: "About"
     contact: "Contact"
@@ -100,7 +108,9 @@ en:
     text: "The form contains"
   password:
     reset: "Reset password"
+    error: "The form contains"
   users:
+    save: "Save change"
     connect: "Connect"
     female: "Female"
     male: "Male"
@@ -108,6 +118,13 @@ en:
     title: "Facebook helps you connect and share with the people in your life."
     create: "Create an account"
     free: "It's free and always will be."
+    confirm: "Are you sure?"
+    male: "Male"
+    female: "Female"
+    limit: "Maximum file size is 5MB. Please choose a smaller file."
+    day: "Day"
+    month: "Month"
+    year: "Year"
   terms:
     last_update: "Last Updated: June 22, 2017"
     term_condition: "Terms and Conditions of Use"
@@ -122,7 +139,6 @@ en:
       If you continue to use this website, you are agreeing to comply with and
       be bound by the following Terms and Conditions of Use, which together
       with our"
-
     third_line: "govern Facebook's relationship with you in relation
       to this website. If you disagree with any part of these Terms and
       Conditions of Use, please do not use our website."

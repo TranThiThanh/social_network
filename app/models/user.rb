@@ -1,11 +1,12 @@
 class User < ApplicationRecord
   attr_accessor :remember_token, :activation_token
+
   before_save   :downcase_email
   before_create :create_activation_digest
   has_many :post
   has_many :activity_log
   has_many :comment, dependent: :destroy
-  has_many :like, as: :likeable, dependent: :destroy
+  has_many :like, dependent: :destroy
   has_many :location
   has_many :group
   has_many :group_user
@@ -23,17 +24,21 @@ class User < ApplicationRecord
   has_many :passive_conversation, class_name: "Conversation", foreign_key: "sender_id", dependent: :destroy
   has_many :recipient, through: :active_conversation, source: :recipient
   has_many :sender, through: :passive_conversation, source: :sender
-  enum gender: [ :male, :female, :other ]
 
   validates :username, length: {maximum: Settings.username}, presence: true
   validates :first_name, length: {maximum: Settings.fname}, presence: true
-  validates :first_name, length: {maximum: Settings.lname}, presence: true
+  validates :last_name, length: {maximum: Settings.lname}, presence: true
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
   validates :email, presence: true, length: {maximum: Settings.email},
   format: {with: VALID_EMAIL_REGEX},
   uniqueness: {case_sensitive: false}
   has_secure_password
-  validates :password, length: {minimum: Settings.password}, presence: true
+  validates :password, length: {minimum: Settings.password}, presence: true,
+    allow_nil: true
+  mount_uploader :avatar, Uploader
+  mount_uploader :cover, Uploader
+
+  scope :alphabetize, -> {order(:username)}
 
   class << self
     def digest string
