@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170719090130) do
+ActiveRecord::Schema.define(version: 20170720023920) do
 
   create_table "activity_logs", force: :cascade do |t|
     t.integer "user_id"
@@ -184,6 +184,8 @@ ActiveRecord::Schema.define(version: 20170719090130) do
     t.string "last_name"
     t.string "activation_digest"
     t.datetime "activated_at"
+    t.string "reset_digest"
+    t.datetime "reset_sent_at"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
