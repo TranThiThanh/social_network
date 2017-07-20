@@ -4,7 +4,7 @@
     <div class="sm-profile">
       <%= image_tag @user.avatar %>
       <div class="info">
-        <%= link_to current_user.username %>
+        <%= link_to current_user.full_name %>
         <%= link_to t("layouts.edit"), "#" %>
       </div>
       <ul>
@@ -21,12 +21,12 @@
           <%= link_to t("layouts.user"), users_path %>
         </li>
         <li>
-          <img alt="" class="v-sm-img" src="#"
-            title="<%= t "layouts.profile" %>"><%= t"layouts.profile" %>
+          <%= image_tag @user.avatar %>
+          <%= link_to t("layouts.profile"), profile_path(current_user) %>
         </li>
         <li>
           <img src="/assets/friends.png" alt="<%= t "layouts.friends" %>">
-          <%= link_to t("layouts.friends"), "#" %>
+          <%= link_to t("layouts.friends"), profile_index_path %>
         </li>
         <li>
           <img src="/assets/add_friend.png" alt="<%= t "layouts.frequest" %>">

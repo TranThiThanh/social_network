@@ -1,0 +1,14 @@
+<% unless is_current? user %>
+  <li>
+    <%= image_tag user.avatar %>
+    <%= link_to user.full_name, profile_path(user) %> |
+    <% if current_user.is_friend?(user) %>
+      <p class="btn btn-success"><%= t "users.friend" %>
+        <span class="glyphicon glyphicon-ok"></span>
+      </p>
+    <% else %>
+      <%= link_to t("users.add_friend"),
+        relationship_index_path(followed_id: user.id), method: :post %>
+    <% end %>
+  </li>
+<% end %>

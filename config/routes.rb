@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   get "/terms", to: "static_pages#terms"
   post "/signup", to: "users#create"
   delete "/logout",  to: "sessions#destroy"
+  get "/friends", to: "users#friends"
   resources :users
   resources :account_activations, only: [:edit]
-  resources :profile, only: [:show]
+  resources :profile, only: [:show, :index]
+  resources :relationship, only: [:create, :update, :destroy]
 end

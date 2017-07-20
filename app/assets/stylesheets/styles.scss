@@ -309,12 +309,158 @@ h4 {
     text-align: center;
   }
 }
+.users{
+  position: relative;
+  top: -5px;
 
-._58mk {
-	border-top: 1px solid #dddfe2;
-    color: #666;
-    font-size: 13px;
-    font-weight: bold;
+  li {
+    position: relative;
+    padding-right: 10px;
     margin-top: 10px;
-    padding-top: 15px;
+    display: inherit;
+  }
+  img{
+    width: 40px;
+    height: 50px;
+  }
+}
+.friend {
+  padding-right: 10px;
+  width: 280px;
+  .dropdown-toggle {
+    line-height: 50px;
+    padding: 5px 8px;
+    background-color: #fff;
+
+    &:hover {
+      text-decoration: none;
+      background-color: #fff;
+    }
+
+    &:focus {
+      text-decoration: none;
+      background-color: #fff;
+    }
+
+    &:active {
+      text-decoration: none;
+      background-color: #96281B;
+    }
+  }
+
+  .request-image {
+    display: inline-block;
+    vertical-align: middle;
+    width: 25px;
+    height: 25px;
+    margin-right: 3px;
+
+    img {
+      object-fit: cover;
+      margin-top: -10px;
+    }
+  }
+
+  .request-name {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 25px;
+  }
+
+  a{
+    display:inline;
+    color: #000;
+  }
+  .request-buttons {
+    float: right;
+
+    .btn {
+      font-size: .85em;
+      vertical-align: middle;
+      border-radius: 0;
+      padding: 3px 8px;
+      margin: 0 0px;
+      border: 0;
+    }
+
+    .btn-success {
+      background-color: #03A678;
+
+      &:hover {
+        background-color: #049372;
+      }
+    }
+
+    .btn-danger {
+      background-color: #C0392B;
+
+      &:hover {
+        background-color: #96281B;
+      }
+    }
+  }
+
+  .dropdown-menu {
+    color: white;
+    min-width: 325px;
+    width: 250px;
+    background-color: #fff;
+    padding: 5px 5px;
+    border-radius: 0;
+    top: 48px;
+    right: -2px;
+
+    li {
+      padding: 6px 5px;
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    padding: 0 10px;
+
+    .dropdown-toggle {
+      display: block;
+      height: 35px;
+      line-height: 35px;
+      padding: 0 10px;
+      margin-top: 5px;
+    }
+
+    .request {
+      width: 100%;
+    }
+
+    .dropdown-menu {
+      min-width: 310px;
+      right: 0;
+    }
+
+    .request-buttons {
+      float: none;
+      margin-top: 10px;
+
+      .btn {
+        font-size: .85em;
+        margin-left: 0;
+        margin-right: 5px;
+      }
+    }
+  }
+}
+
+.friends-wrapper {
+  li{
+    display: table-caption;
+
+    img{
+      width: 200px;
+      height: 200px;
+    }
+
+    input{
+    display: inline;
+    float: right;
+    margin: -30px -100px;
+    }
+  }
 }
