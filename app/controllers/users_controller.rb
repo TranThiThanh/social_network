@@ -1,9 +1,6 @@
 class UsersController < ApplicationController
-  before_action :load_user, except: [:index, :create, :new]
-
-  def show
-  end
-
+  before_action :load_user, except: [:create, :new]
+  skip_before_action :require_login
   def new
     @user = User.new
   end
@@ -16,16 +13,6 @@ class UsersController < ApplicationController
       redirect_to root_url
     else
       render :new
-    end
-  end
-
-  def index
-    if params[:search]
-      @users = User.search(params[:search]).alphabetize.
-        paginate page: params[:page], per_page: Settings.number_of_page
-    else
-      @users = User.all.alphabetize.paginate page: params[:page],
-        per_page: Settings.number_of_page
     end
   end
 
@@ -54,8 +41,8 @@ class UsersController < ApplicationController
   private
 
   def user_params_signup
-    params.require(:user).permit :first_name, :last_name, :username, :email,
-      :password, :password_confirmation, :birthday
+    params.require(:user).permit :first_name, :last_name, :email,
+      :password, :password_confirmation, :birthday, :gender
   end
 
   def user_params

@@ -1,51 +1,87 @@
-<div class="signup">
-  <section class="main-bkg">
-    <div class="main-container">
-      <div class="col-left">
-        <div class="left-title">
-          <%= t "users.title" %>
-        </div>
-        <%= image_tag "connect.png", alt: t( "users.connect") %>
-      </div>
-      <div class="title-col-right">
-        <div class="title-right-up">
-          <h1 class="create"><%= t "users.create" %></h1>
-          <div class="free-style">
-            <%= t "users.free" %>
-          </div>
+<div id="contentwrapper">
+  <div id="content">
+    <div id="leftbod">
+      <div class="connect bolder">
+        Connect with friends and the
+      world around you on Facebook.</div>
+      <div class="leftbar">
+        <%= image_tag "see.png" %>
+        <div class="fb1">
+          <span class="rowtext">See photos and updates</span>
+          <span class="rowtext2 fb1">from friends in News Feed</span>
         </div>
       </div>
-      <div class="form">
-        <%= form_for @user, url: signup_path do |f| %>
-          <%= render "shared/error_messages" %>
-          <%= f.text_field :first_name, class: "inputbody in1",
-            placeholder: t("signup.first_name") %>
-          <%= f.text_field :last_name, class: "inputbody in1 fr",
-            placeholder: t("signup.surname") %>
-          <%= f.text_field :username, class: "inputbody in2",
-            placeholder: t("signup.us_name") %>
-          <%= f.email_field :email, class: "inputbody in2",
-            placeholder: t("signup.email") %>
-          <%= f.password_field :password, class: "inputbody in2",
-            placeholder: t("signup.new_password") %>
-          <%= f.password_field :password_confirmation, class: "inputbody in2",
-            placeholder: t("signup.password_confirmation")%>
-          <div class="formbox"><%= t "users.birthday" %></div>
-          <div class="formbox">
-            <span class="formbox">
-              <%= f.date_select :birthday, order: [:year, :month, :day],
-                prompt: { day: Settings.day, month: Settings.month,
-                year: Settings.year },
-                start_year: Date.today.year - Settings.start_year,
-                end_year: Date.today.year + Settings.end_year %>
+      <div class="leftbar">
+        <%= image_tag "share.png" %>
+        <div class="fb1">
+          <span class="rowtext">Share what's new</span>
+          <span class="rowtext2 fb1">in your life on your timeline</span>
+        </div>
+      </div>
+      <div class="leftbar">
+        <%= image_tag "find.png" %>
+        <div class="fb1">
+          <span class="rowtext">Find more</span>
+          <span class="rowtext2 fb1">of what you're looking for with graph search</span>
+        </div>
+      </div>
+    </div>
+    <div id="rightbod">
+      <div class="signup bolder">Create an account</div>
+      <div class="free bolder">It's free and always will be</div>
+      <%= form_for User.new, url: signup_path do |f| %>
+      <div class="formbox">
+        <%= f.text_field :first_name, class: "inputbody in1",
+        placeholder: t("signup.first_name") %>
+        <%= f.text_field :last_name, class: "inputbody in1 fr",
+        placeholder: t("signup.surname") %>
+      </div>
+      <div class="formbox">
+        <%= f.email_field :email, class: "inputbody in2",
+        placeholder: t("signup.email") %>
+      </div>
+      <div class="formbox">
+        <%= f.password_field :password, class: "inputbody in2",
+        placeholder: t("signup.new_password") %>
+      </div>
+      <div class="formbox">
+        <%= f.password_field :password_confirmation, class: "inputbody in2",
+        placeholder: t("signup.password_confirmation")%>
+      </div>
+      <div class="formbox">
+        <div class="bday"><%= t "users.birthday" %></div>
+      </div>
+      <div class="formbox">
+        <span data-type="selectors">
+          <span>
+            <%= f.date_select :birthday, order: [:day, :month, :year],
+            prompt: { day: Settings.day, month: Settings.month,
+            year: Settings.year },
+            start_year: Date.today.year - Settings.start_year,
+            end_year: Date.today.year + Settings.end_year %>
+          </span>
+          <div class="fb1 why h">Why do I need to provide my birthday?</div></div>
+          <div class="formbox mt1">
+            <span data-type="radio" class="spanpad">
+              <%= f.radio_button :gender, "female", class: "m0" %>
+              <%= f.label :gender_female, "Female", class: "gender" %>
+              <%= f.radio_button :gender, "male", class: "m0" %>
+              <%= f.label :gender_male,   "Male", class: "gender" %>
             </span>
           </div>
           <div class="formbox">
-            <%= f.submit t("signup.create_account"), class: "button" %>
+            <div class="agree">
+              By clicking Sign Up, you agree to our <div class="link">Terms</div> and that you have read our <div class="link">Data Use Policy</div>, including our <div class="link">Cookie Use</div>.
+            </div>
+          </div>
+          <div class="formbox">
+            <%= f.submit t("signup.create_account"), class: "signbut bolder" %>
           </div>
         <% end %>
+          <div class="formbox">
+            <div class="create"><div class="link h">Create a Page</div> for a celebrity, band or business.</div>
+          </div>
+        </div>
       </div>
     </div>
-  </section>
-</div>
-<%= render partial: "shared/footer" %>
+  <%= render "shared/footer" %>

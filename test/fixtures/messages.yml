@@ -1,13 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  user: one
-  chatroom: one
+  body: MyText
   conversation: one
-  content: MyString
+  user: one
 
 two:
-  user: two
-  chatroom: two
+  body: MyText
   conversation: two
-  content: MyString
+  user: two

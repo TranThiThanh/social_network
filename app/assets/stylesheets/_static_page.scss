@@ -1,0 +1,44 @@
+/*
+  ========================================
+  Static Pages
+  ========================================
+*/
+
+.static-content {
+  line-height: 1.4;
+  background-color: #e9eaed;
+  font-size: 14px;
+  height: auto;
+  h2 {
+    text-align: center;
+  }
+  h5 {
+    color: #666;
+    font-weight: bold;
+    font-style: italic;
+    padding: 10px 0;
+    font-size: 12px;
+  }
+  h3 {
+    font-size: 16px;
+    font-weight: bold;
+    padding: 15px 0 5px 0;
+  }
+  p, ul {
+    padding-bottom: 15px;
+  }
+  h2 + p {
+    padding-top: 20px;
+  }
+  a {
+    color: #3b5998;
+  }
+  p{
+    margin: 10px 150px 10px;
+  }
+  li {
+    padding-left: 15px;
+    list-style-type: square;
+    list-style-position: inside;
+  }
+}
