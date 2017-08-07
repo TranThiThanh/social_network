@@ -18,16 +18,7 @@ class Uploader < CarrierWave::Uploader::Base
   end
 
   def default_url
-    "#{asset_host}/images/" +
-      [version_name, "default.png"].compact.join("_")
-  end
-
-  version :thumb do
-    process resize_to_fill: [Settings.max_thumb, Settings.max_thumb]
-  end
-
-  version :small_thumb, from_version: :thumb do
-    process resize_to_fill: [Settings.min_thumb, Settings.min_thumb]
+    "/assets/" + [version_name, "default.png"].compact.join('_')
   end
 
 end

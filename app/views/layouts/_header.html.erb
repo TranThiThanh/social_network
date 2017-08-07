@@ -5,30 +5,57 @@
       <img id="icon" src="/assets/facebook.png"
         alt="<%= t "layouts.application" %>">
       <div class="header-form">
-        <input id="q" name="q" placeholder="<%= t "layouts.holder" %>"
-          type="search">
-        <button class="search-btn" type="submit">
-          <img alt="<%= t "layouts.holder" %>" class="search-icon"
-            src="/assets/search.png">
-        </button>
+        <%= form_tag users_path, method: :get  do %>
+          <%= search_field_tag :search, nil, class: "form-control",
+            placeholder: t("layouts.holder") %>
+          <button class="search-btn" type="submit">
+            <img alt="<%= t "layouts.holder" %>" class="search-icon"
+              src="/assets/search.png">
+          </button>
+        <% end %>
       </div>
       <div class="header-menu">
         <ul>
           <li>
             <div class="header-form" title="<%= t "layouts.profile" %>">
               <%= image_tag @user.avatar %>
-              <span><%= current_user.username %></span>
+              <span><%= current_user.full_name %></span>
             </div>
           </li>
-          <li><a href="#"><%= t "layouts.home" %></a></li>
-          <li>
-            <button class="btn btn-default dropdown-toggle friend-btn"
-              id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-              <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+          <li><%= link_to t("layouts.home"), current_user %></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <b class="glyphicon glyphicon-user"></b>
               <span class="badge">
-                0
+                <%= pluralize(current_user.pending_friend_requests.count, "") %>
               </span>
-            </button>
+            </a>
+            <ul class="dropdown-menu friend">
+              <% current_user.pending_friend_requests.each do |request| %>
+                <li>
+                  <div class="request">
+                    <div class="request-image">
+                      <%= link_to request.follower do %>
+                        <%= image_tag request.follower.avatar %>
+                      <% end %>
+                    </div>
+                    <div class="request-name">
+                      <%= link_to request.follower do %>
+                        <%= request.follower.username %>
+                      <% end %>
+                    </div>
+                    <div class="request-buttons">
+                      <%= link_to t("layouts.accept_yes"),
+                        relationship_path(request.id), method: :put,
+                        class: "btn btn-success" %>
+                      <%= link_to t("layouts.accept_no"),
+                        relationship_path(request.follower.id),
+                        method: :delete, class: "btn btn-danger" %>
+                    </div>
+                  </div>
+                </li>
+              <% end %>
+            </ul>
           </li>
           <li>
             <button class="btn btn-default dropdown-toggle message-btn"

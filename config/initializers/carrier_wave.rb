@@ -7,6 +7,5 @@ if Rails.env.production?
     }
     config.fog_directory = "S3_BUCKET"
     config.storage = :file
-    config.asset_host = ActionController::Base.asset_host
   end
 end

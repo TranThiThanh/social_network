@@ -1,0 +1,16 @@
+<div class="friends-wrapper">
+  <h1><%= t "users.friend" %></h1>
+  <%= will_paginate @users %>
+  <% @users.each do |friend| %>
+    <% if friend.friends %>
+      <li>
+        <%= image_tag friend.avatar %>
+        <%= link_to friend.full_name, profile_path(friend) %> |
+        <%= button_to t("users.unfriend"),
+          relationship_path(current_user.find_friendship(friend)),
+          data: {confirm: t("users.confirm")}, method: :delete,
+          class: "btn btn-success" %>
+      </li>
+    <% end %>
+  <% end %>
+</div>

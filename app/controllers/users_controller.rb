@@ -20,8 +20,13 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all.alphabetize.paginate page: params[:page],
-      per_page: Settings.number_of_page
+    if params[:search]
+      @users = User.search(params[:search]).alphabetize.
+        paginate page: params[:page], per_page: Settings.number_of_page
+    else
+      @users = User.all.alphabetize.paginate page: params[:page],
+        per_page: Settings.number_of_page
+    end
   end
 
   def edit

@@ -18,8 +18,10 @@
   <div class="banner-bottom">
   <ul>
     <li>
-      <%= link_to t("layouts.timeline"), "#" %>
-      <%= link_to t("layouts.about"), "#" %>
+      <%= link_to t("layouts.timeline"), "#", class: "btn" %>
+      <%= link_to t("layouts.about"), "#", class: "btn" %>
+      <%= link_to t("users.friend"), profile_index_path, class: "btn" %>
+      <%= pluralize(current_user.friends.count, "") %>
     </li>
   </ul>
   </div>

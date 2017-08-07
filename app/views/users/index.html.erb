@@ -2,10 +2,5 @@
 <h1><%= t "layouts.user" %></h1>
 <%= will_paginate %>
 <ul class="users">
-  <% @users.each do |user| %>
-    <li>
-      <%= image_tag user.avatar %>
-      <%= link_to user.username %>
-    </li>
-  <% end %>
+  <%= render partial: "user_item", collection: @users, as: :user %>
 </ul>

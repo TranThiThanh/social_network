@@ -10,10 +10,13 @@ class User < ApplicationRecord
   has_many :location
   has_many :group
   has_many :group_user
-  has_many :active_relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
-  has_many :passive_relationships, class_name: "Relationship",foreign_key: "followed_id",dependent: :destroy
-  has_many :following, through: :active_relationships, source: :followed
-  has_many :followers, through: :passive_relationships, source: :follower
+  has_many :requested_friendships, class_name: "Relationship",
+    foreign_key: "follower_id", dependent: :destroy
+  has_many :pending_friendships, class_name: "Relationship",
+    foreign_key: "followed_id",dependent: :destroy
+  has_many :requested_friends, through: :requested_friendships,
+    source: :followed
+  has_many :pending_friends, through: :pending_friendships, source: :follower
   has_many :active_notification, class_name: "Notification", foreign_key: "actor_id", dependent: :destroy
   has_many :passive_notification, class_name: "Notification", foreign_key: "recipient_id", dependent: :destroy
   has_many :actor, through: :active_notification, source: :actor
@@ -39,7 +42,6 @@ class User < ApplicationRecord
   mount_uploader :cover, Uploader
 
   scope :alphabetize, -> {order(:username)}
-
   class << self
     def digest string
       cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
@@ -49,6 +51,12 @@ class User < ApplicationRecord
 
     def new_token
       SecureRandom.urlsafe_base64
+    end
+
+    def search search
+      where("username Like :value OR phone LIKE :value OR
+        first_name Like :value OR last_name LIKE :value OR email LIKE :value",
+        value: "%#{search}%")
     end
   end
 
@@ -73,6 +81,41 @@ class User < ApplicationRecord
     digest = send("#{attribute}_digest")
     return false if digest.nil?
     BCrypt::Password.new(digest).is_password?(token)
+  end
+
+  def requested_friend_requests
+    requested_friendships.where(accepted: false)
+  end
+
+  def pending_friend_requests
+    pending_friendships.where(accepted: false)
+  end
+
+  def destroy_friendship ex_friend
+    requested_friends.delete(ex_friend) &&
+      ex_friend.requested_friends.delete(self)
+  end
+
+  def find_friendship friend
+    requested_friendships.find_by(followed_id: friend.id) ||
+      pending_friendships.find_by(follower_id: friend.id)
+  end
+
+  def accepted? friendship
+    friendship.accepted
+  end
+
+  def is_friend? user
+    friendship = find_friendship(user)
+    friendship.present? ? friendship.accepted? : false
+  end
+
+  def friends
+    User.all.select {|user| is_friend?(user)}
+  end
+
+  def full_name
+    "#{first_name} #{last_name}"
   end
 
   private

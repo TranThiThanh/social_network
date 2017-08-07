@@ -53,7 +53,9 @@
         <%= link_to t("profile.back"), @user %>
       </button>
       <button class="btn">
-        <%= link_to t("profile.edit"), edit_user_path(current_user) %>
+        <% if is_current? @user %>
+          <%= link_to t("profile.edit"), edit_user_path(current_user) %>
+        <% end %>
       </button>
     </div>
   </div>
