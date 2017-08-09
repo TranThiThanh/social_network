@@ -35,8 +35,8 @@
               <%= f.label :remember_me, t("shared.remember_me") %>
             </td>
             <td>
-              <%= link_to t("shared.forgot_password"), class:
-              "forgotpassword" %>
+              <%= link_to t("shared.forgot_password"), new_password_reset_path,
+                class: "forgotpassword" %>
             </td>
           </tr>
         </tbody>
