@@ -1,0 +1,9 @@
+<div class="comment-form">
+  <%= form_for :comment, url: comments_path(post_id: post.id),
+    method: "post" do |f| %>
+    <%= f.text_area :content, placeholder: t("comment.holder"),
+      class: "text-box" %>
+    <%= f.hidden_field :post_id, :value => post.id %>
+    <%= f.submit t("comment.button"), class: "btn" %>
+  <% end %>
+</div>

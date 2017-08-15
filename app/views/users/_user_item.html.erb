@@ -1,6 +1,6 @@
 <% unless is_current? user %>
   <li>
-    <%= image_tag user.avatar %>
+    <%= image_tag user.avatar, class: "image-group" %>
     <%= link_to user.full_name, profile_path(user) %> |
     <% if current_user.is_friend?(user) %>
       <p class="btn btn-success"><%= t "users.friend" %>

@@ -1,0 +1,15 @@
+<%= form_for post, html: {multipart: true} do |f| %>
+  <div class="field">
+    <%= f.text_area :content %>
+  </div>
+  <%= f.fields_for :image, post.image.build do |image| %>
+    <div class="field">
+      <%= image.file_field :name_image, multiple: true,
+        name: "image[name_image][]", class: "upload-image" %>
+    </div>
+  <% end %>
+  <div class="actions">
+    <%= f.submit t("group.updated"), class: "btn btn-sm btn-primary" %>
+  </div>
+  <br />
+<% end %>

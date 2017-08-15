@@ -13,4 +13,6 @@ emails: "tranthithanhqt1397@gmail.com"
 image_maximum: 400
 max_thumb: 220
 min_thumb: 50
-number_of_page: 5
+number_of_page: 3
+number: 86400
+member: "Member"

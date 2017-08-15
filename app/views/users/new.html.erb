@@ -17,7 +17,7 @@
       </div>
       <div class="form">
         <%= form_for @user, url: signup_path do |f| %>
-          <%= render "shared/error_messages" %>
+          <%= render "shared/error_messages", object: f.object %>
           <%= f.text_field :first_name, class: "inputbody in1",
             placeholder: t("signup.first_name") %>
           <%= f.text_field :last_name, class: "inputbody in1 fr",

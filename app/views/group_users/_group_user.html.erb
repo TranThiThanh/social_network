@@ -1,0 +1,12 @@
+<li id="<%= group.id %>">
+  <%= image_tag group.group_user.avatar %>
+  <span class="user">
+    <%= link_to group.group_user.full_name, group.group_user %>
+  </span>
+  <span class="content"><%= post.content %></span>
+  <span class="timestamp">
+    <%= t "group.join" %>
+      <%= time_ago_in_words(post.created_at) %>
+      <%= t "group.ago" %>
+  </span>
+</li>

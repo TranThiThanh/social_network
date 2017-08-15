@@ -1,0 +1,9 @@
+<% if params[:list_member] %>
+  $('.content-group').html('<%= j render partial: "member", collection: @members, as: :member %>');
+<% elsif params[:list_group] %>
+  $('.content-group').html('<%= j render partial: "group_item", collection: @groups, as: :group %>');
+<% elsif params[:list_user] %>
+  $('.content-group').html('<%= j render partial: "users/user_item", collection: @users, as: :user %>');
+<% else %>
+  $('.content-group').html('<%= j render "edit_group" %>');
+<% end %>

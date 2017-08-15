@@ -1,0 +1,43 @@
+<div class="font-family">
+  <div id="user-<%= member.id %>">
+    <div class="col-xs-12 col-sm-4">
+      <div class="widget-box">
+        <div class="widget-header">
+          <h4 class="widget-title"><%= t "group.member" %></h4>
+          <div class="widget-toolbar">
+            <a href="#" data-action="collapse">
+              <i class="ace-icon fa fa-chevron-up"></i>
+            </a>
+            <a href="#" data-action="close">
+              <i class="ace-icon fa fa-times"></i>
+            </a>
+          </div>
+        </div>
+        <div class="widget-body">
+          <div class="widget-main">
+            <div class="form-group">
+              <div class="col-xs-12">
+                <label for="form-field-8"><%= member.user.full_name %></label>
+                <%= image_tag member.user.avatar, class: "image-group" %>
+              </div>
+              <% if member.id == @group.owner_id %>
+                <label for="form-field-8"><%= link_to "Admin", "#" %></label>
+              <% else %>
+                <label for="form-field-8"><%= link_to "Member", "#" %></label>
+                <% if @group.owner == current_user %>
+                  <label>
+                    <%= link_to group_user_path(member), method: :delete,
+                      data: { confirm: t("users.confirm")} do %>
+                      <i class="menu-icon fa fa-trash-o"></i>
+                      <span class="menu-text"><%= t "user.destroy" %></span>
+                    <% end %>
+                  </label>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

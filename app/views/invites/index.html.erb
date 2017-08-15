@@ -1,0 +1,7 @@
+<div class="search">
+<% provide :title, t("layouts.user") %>
+<%= will_paginate @users %>
+<ul class="users">
+  <%= render partial: "invite", collection: @users, as: :user %>
+</ul>
+</div>

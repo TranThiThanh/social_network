@@ -1,0 +1,11 @@
+<% unless is_current?(user) %>
+  <li>
+    <%= image_tag user.avatar %>
+    <%= link_to user.full_name, profile_path(user) %> |
+    <%= form_for build_invitations(user) do |f| %>
+      <%= f.hidden_field :group_id %>
+      <%= f.hidden_field :recipient_id %>
+      <%= f.submit t("users.send_invite") %>
+    <% end %>
+  </li>
+<% end %>

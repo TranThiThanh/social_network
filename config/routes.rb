@@ -16,4 +16,10 @@ Rails.application.routes.draw do
   resources :profile, only: [:show, :index]
   resources :relationship, only: [:create, :update, :destroy]
   resources :password_resets, except: [:index, :destroy, :show]
+  resources :groups
+  resources :group_users
+  resources :posts
+  resources :comments
+  resources :invites
+  resources :likes
 end

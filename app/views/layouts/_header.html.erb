@@ -18,7 +18,7 @@
         <ul>
           <li>
             <div class="header-form" title="<%= t "layouts.profile" %>">
-              <%= image_tag @user.avatar %>
+              <%= image_tag current_user.avatar %>
               <span><%= current_user.full_name %></span>
             </div>
           </li>
@@ -49,7 +49,7 @@
                         relationship_path(request.id), method: :put,
                         class: "btn btn-success" %>
                       <%= link_to t("layouts.accept_no"),
-                        relationship_path(request.follower.id),
+                        relationship_path(request.id),
                         method: :delete, class: "btn btn-danger" %>
                     </div>
                   </div>
@@ -57,30 +57,52 @@
               <% end %>
             </ul>
           </li>
-          <li>
-            <button class="btn btn-default dropdown-toggle message-btn"
-              id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-              <span class="glyphicon glyphicon-envelope" aria-hidden="true">
-              </span>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <b class="glyphicon glyphicon-envelope"></b>
               <span class="badge">
                 0
               </span>
-            </button>
+            </a>
           </li>
-          <li>
-            <button class="btn btn-default dropdown-toggle notification-btn"
-              id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-              <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <b class="glyphicon glyphicon-globe"></b>
               <span class="badge">
-                0
+                <%= pluralize(current_user.pending_group.count, "") %>
               </span>
-            </button>
+            </a>
+            <ul class="dropdown-menu friend">
+              <% current_user.pending_group.each do |request| %>
+                <li>
+                  <div class="request">
+                    <div class="request-image">
+                      <%= link_to request.group do %>
+                        <%= image_tag request.group.avatar %>
+                      <% end %>
+                    </div>
+                    <div class="request-name">
+                      <%= link_to request.group do %>
+                        <%= request.group.name_group %>
+                      <% end %>
+                    </div>
+                    <div class="request-buttons">
+                      <%= link_to t("layouts.join_yes"),
+                        invite_path(request), method: :put,
+                        class: "btn btn-success" %>
+                      <%= link_to t("layouts.accept_no"),
+                        invite_path(request),
+                        method: :delete, class: "btn btn-danger" %>
+                    </div>
+                  </div>
+                </li>
+              <% end %>
+            </ul>
           </li>
-          <li>
-            <button class="btn btn-default dropdown-toggle help-btn"
-              id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-              <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
-            </button>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <b class="glyphicon glyphicon-question-sign"></b>
+            </a>
           </li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
