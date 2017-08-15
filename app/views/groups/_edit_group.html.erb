@@ -1,0 +1,106 @@
+<div class="font-family">
+  <%= form_for @group do |f| %>
+  <div class="row">
+    <div class="col-xs-12 col-sm-4">
+      <div class="widget-box">
+        <div class="widget-header">
+          <h4 class="widget-title"><%= t "group.edit" %></h4>
+          <div class="widget-toolbar">
+            <a href="#" data-action="collapse">
+              <i class="ace-icon fa fa-chevron-up"></i>
+            </a>
+            <a href="#" data-action="close">
+              <i class="ace-icon fa fa-times"></i>
+            </a>
+          </div>
+        </div>
+        <div class="widget-body">
+          <div class="widget-main">
+            <div>
+              <label for="form-field-8"><%= t "group.name_group" %></label>
+              <%= f.text_field :name_group, class: "form-control" %>
+            </div>
+            <div>
+              <label for="form-field-8"><%= t "group.description" %></label>
+              <%= f.text_field :description, class: "form-control" %>
+            </div>
+            <div>
+              <label for="form-field-8"><%= t "group.privacy" %></label>
+              <span data-type="radio" class="spanpad">
+                <%= f.radio_button :privacy, "close" %>
+                <%= f.label :privacy_private, t("group.private") %>
+                <%= f.radio_button :privacy, "open" %>
+                <%= f.label :privacy_public, t("group.public") %>
+              </span>
+            </div>
+            <label>
+              <%= f.submit t("group.updated"), class: "button-group" %>
+            </label>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-3">
+      <div class="widget-box">
+        <div class="widget-header">
+          <h4 class="widget-title"><%= t "layouts.change_avatar" %></h4>
+          <div class="widget-toolbar">
+            <a href="#" data-action="collapse">
+              <i class="ace-icon fa fa-chevron-up"></i>
+            </a>
+            <a href="#" data-action="close">
+              <i class="ace-icon fa fa-times"></i>
+            </a>
+          </div>
+        </div>
+        <div class="widget-body">
+          <div class="widget-main">
+            <div class="form-group">
+              <div class="col-xs-12">
+                <div class="choose-avatar">
+                  <%= f.file_field :avatar, accept: t("layouts.accept") %>
+                </div>
+                <%= image_tag @group.avatar, class: "image-group" %>
+              </div>
+            </div>
+            <label>
+              <%= f.submit t("group.updated"), class: "button-group" %>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-3">
+      <div class="widget-box">
+        <div class="widget-header">
+          <h4 class="widget-title"><%= t "layouts.change_cover" %></h4>
+          <div class="widget-toolbar">
+            <a href="#" data-action="collapse">
+              <i class="ace-icon fa fa-chevron-up"></i>
+            </a>
+            <a href="#" data-action="close">
+              <i class="ace-icon fa fa-times"></i>
+            </a>
+          </div>
+        </div>
+        <div class="widget-body">
+          <div class="widget-main">
+            <div class="form-group">
+              <div class="col-xs-12">
+                <div class="choose-avatar">
+                <%= f.file_field :cover, accept: t("layouts.accept") %>
+                </div>
+                <%= image_tag @group.cover, class: "image-group" %>
+              </div>
+            </div>
+            <label>
+              <%= f.submit t("group.updated"), class: "button-group" %>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  <% end %>
+</div>

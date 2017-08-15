@@ -9,24 +9,37 @@ class User < ApplicationRecord
   has_many :comment, dependent: :destroy
   has_many :like, dependent: :destroy
   has_many :location
-  has_many :group
-  has_many :group_user
+  has_many :group, dependent: :destroy
+  has_many :group_user, dependent: :destroy
+
   has_many :requested_friendships, class_name: "Relationship",
     foreign_key: "follower_id", dependent: :destroy
   has_many :pending_friendships, class_name: "Relationship",
-    foreign_key: "followed_id",dependent: :destroy
+    foreign_key: "followed_id", dependent: :destroy
   has_many :requested_friends, through: :requested_friendships,
     source: :followed
   has_many :pending_friends, through: :pending_friendships, source: :follower
-  has_many :active_notification, class_name: "Notification", foreign_key: "actor_id", dependent: :destroy
-  has_many :passive_notification, class_name: "Notification", foreign_key: "recipient_id", dependent: :destroy
+
+  has_many :active_notification, class_name: "Notification",
+    foreign_key: "actor_id", dependent: :destroy
+  has_many :passive_notification, class_name: "Notification",
+    foreign_key: "recipient_id", dependent: :destroy
   has_many :actor, through: :active_notification, source: :actor
   has_many :recipient, through: :passive_notification, source: :recipient
+
   has_many :chatroom_user
   has_many :conversations, :foreign_key => :sender_id
 
   validates :gender, presence: true
   validates :birthday, presence: true
+
+  has_many :sent_invites, class_name: "Invite", foreign_key: "sender_id",
+    dependent: :destroy
+  has_many :invitations, class_name: "Invite", foreign_key: "recipient_id",
+    dependent: :destroy
+  has_many :requested_group, through: :sent_invites, source: :recipient
+  has_many :pending_group, through: :invitations, source: :sender
+
   validates :first_name, length: {maximum: Settings.fname}, presence: true
   validates :last_name, length: {maximum: Settings.lname}, presence: true
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
@@ -133,6 +146,14 @@ class User < ApplicationRecord
 
   def password_reset_expired?
     reset_sent_at < 2.hours.ago
+  end
+
+  def requested_group
+    sent_invites.where(accepted: false)
+  end
+
+  def pending_group
+    invitations.where(accepted: false)
   end
 
   private

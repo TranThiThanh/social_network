@@ -1,0 +1,23 @@
+<div class="form">
+  <div class="panel-heading">
+    <h1><%= t "group.create" %></h1>
+  </div>
+  <div class="panel panel-primary">
+    <%= form_for @group, url: groups_path do |f| %>
+    <%= render "shared/error_messages", object: f.object %>
+    <%= f.text_field :name_group, class: "create in",
+      placeholder: t("group.name_group") %>
+    <%= f.text_field :description, class: "create in",
+      placeholder: t("group.description") %>
+    <span data-type="radio" class="spanpad">
+      <%= f.radio_button :privacy, "close" %>
+      <%= f.label :privacy_private, t("group.private") %>
+      <%= f.radio_button :privacy, "open" %>
+      <%= f.label :privacy_public, t("group.public") %>
+    </span>
+    <div class="button-submit">
+      <%= f.submit t("group.create_group"), class: "button-group" %>
+    </div>
+  <% end %>
+  </div>
+</div>

@@ -1,0 +1,186 @@
+<body class="no-skin">
+  <div id="navbar" class="navbar navbar-default ace-save-state">
+    <div class="navbar-container ace-save-state" id="navbar-container">
+      <button type="button" class="navbar-toggle menu-toggler pull-left" id="menu-toggler" data-target="#sidebar">
+        <span class="sr-only"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <div class="navbar-header pull-left">
+        <a href="#" class="navbar-brand">
+          <small>
+            <i class="fa fa-leaf"></i>
+            <%= @group.name_group %>
+          </small>
+        </a>
+      </div>
+      <div class="nav-search" id="nav-search">
+        <form class="form-search">
+          <span class="input-icon">
+            <input type="text" placeholder="<%= t "layouts.holder" %>"
+              class="nav-search-input" id="nav-search-input"
+              autocomplete="off" />
+            <i class="ace-icon fa fa-search nav-search-icon"></i>
+          </span>
+        </form>
+      </div>
+      <div class="navbar-buttons navbar-header pull-right" role="navigation">
+        <ul class="nav ace-nav">
+          <li class="grey dropdown-modal">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+              <i class="ace-icon fa fa-tasks"></i>
+              <span class="badge badge-grey">0</span>
+            </a>
+            <ul class="dropdown-menu-right dropdown-navbar dropdown-menu
+              dropdown-caret dropdown-close">
+              <li class="dropdown-header">
+                <i class="ace-icon fa fa-check"></i>
+                <%= t "group.task" %>
+              </li>
+              <li class="dropdown-content">
+                <ul class="dropdown-menu dropdown-navbar">
+                  <li>
+                    <a href="#">
+                      <div class="clearfix">
+                        <span class="pull-left"><%= t "group.task_name" %></span>
+                        <span class="pull-right">65%</span>
+                      </div>
+
+                      <div class="progress progress-mini">
+                        <div style="width:65%" class="progress-bar"></div>
+                      </div>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="dropdown-footer">
+                <a href="#">
+                  <%= t "group.see_more" %>
+                  <i class="ace-icon fa fa-arrow-right"></i>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="purple dropdown-modal">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+              <i class="ace-icon fa fa-bell icon-animated-bell"></i>
+              <span class="badge badge-important">0</span>
+            </a>
+            <ul class="dropdown-menu-right dropdown-navbar navbar-pink
+              dropdown-menu dropdown-caret dropdown-close">
+              <li class="dropdown-header">
+                <i class="ace-icon fa fa-exclamation-triangle"></i>
+                <%= t "group.infor" %>
+              </li>
+
+              <li class="dropdown-content">
+                <ul class="dropdown-menu dropdown-navbar navbar-pink">
+                  <li>
+                    <a href="#">
+                      <div class="clearfix">
+                        <span class="pull-left">
+                          <i class="btn btn-xs no-hover btn-pink fa fa-comment"></i>
+                          <%= t "group.new_comment" %>
+                        </span>
+                        <span class="pull-right badge badge-info">+12</span>
+                      </div>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+
+              <li class="dropdown-footer">
+                <a href="#">
+                  <%= t "group.see_more" %>
+                  <i class="ace-icon fa fa-arrow-right"></i>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="green dropdown-modal">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+              <i class="ace-icon fa fa-envelope icon-animated-vertical"></i>
+              <span class="badge badge-success">0</span>
+            </a>
+
+            <ul class="dropdown-menu-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">
+              <li class="dropdown-header">
+                <i class="ace-icon fa fa-envelope-o"></i>
+                <%= t "group.chat" %>
+              </li>
+
+              <li class="dropdown-content">
+                <ul class="dropdown-menu dropdown-navbar">
+                  <li>
+                    <a href="#" class="clearfix">
+                      <img src="/assets/default.png" class="msg-photo"
+                        alt="Alex's Avatar" />
+                      <span class="msg-body">
+                        <span class="msg-title">
+                          <span class="blue"><%= @group.name_group%></span>
+                          <%= t "group.example" %>
+                        </span>
+                        <span class="msg-time">
+                          <i class="ace-icon fa fa-clock-o"></i>
+                          <span><%= time_ago_in_words(@group.created_at) %>
+                            <%= t "group.ago" %>
+                          </span>
+                        </span>
+                      </span>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="dropdown-footer">
+                <a href="inbox.html">
+                  <%= t "group.see_more" %>
+                  <i class="ace-icon fa fa-arrow-right"></i>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="light-blue dropdown-modal">
+            <a data-toggle="dropdown" href="#" class="dropdown-toggle">
+              <%= image_tag current_user.avatar, class: "nav-user-photo" %>
+              <span class="user-info">
+                <small><%= t "group.welcom" %></small>
+                <%= current_user.full_name %>
+              </span>
+              <i class="ace-icon fa fa-caret-down"></i>
+            </a>
+
+            <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+              <li>
+                <a>
+                  <i class="ace-icon fa fa-cog"></i>
+                  <%= link_to t("layouts.setting"),
+                    profile_path(current_user), class: "set-position" %>
+                </a>
+              </li>
+              <li>
+                <a>
+                  <i class="ace-icon fa fa-user"></i>
+                  <%= link_to t("layouts.profile"), edit_group_path %>
+                </a>
+              </li>
+              <li class="divider"></li>
+              <li>
+                <a>
+                  <i class="ace-icon fa fa-power-off"></i>
+                  <%= link_to t("layouts.logout"), logout_path,
+                    method: :delete %>
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <%= render "shared/sidenav" %>
+  <div class="content-group">
+    <h1><%= t "group.welcome_group" %></h1>
+  </div>
+</body>

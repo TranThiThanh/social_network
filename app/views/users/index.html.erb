@@ -1,1 +1,12 @@
-
+<% provide :title, t("layouts.user") %>
+<div class="search">
+  <%= will_paginate %>
+  <%if @groups.blank? %>
+    <%= will_paginate @groups %>
+  <% end %>
+  <ul class="users">
+    <%= render partial: "user_item", collection: @users, as: :user %>
+    <%= render partial: "groups/group_item", collection: @groups,
+      as: :group %>
+  </ul>
+</div>

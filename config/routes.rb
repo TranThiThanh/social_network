@@ -20,4 +20,10 @@ Rails.application.routes.draw do
   resources :conversations do
     resources :messages
   end
+  resources :groups
+  resources :group_users
+  resources :posts
+  resources :comments
+  resources :invites
+  resources :likes
 end

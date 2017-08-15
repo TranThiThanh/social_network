@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170802072041) do
+ActiveRecord::Schema.define(version: 20170814044345) do
+
 
   create_table "activity_logs", force: :cascade do |t|
     t.integer "user_id"
@@ -65,6 +66,7 @@ ActiveRecord::Schema.define(version: 20170802072041) do
     t.integer "group_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "role", default: "Member"
     t.index ["group_id", "created_at"], name: "index_group_users_on_group_id_and_created_at"
     t.index ["group_id"], name: "index_group_users_on_group_id"
     t.index ["user_id", "created_at"], name: "index_group_users_on_user_id_and_created_at"
@@ -72,15 +74,16 @@ ActiveRecord::Schema.define(version: 20170802072041) do
   end
 
   create_table "groups", force: :cascade do |t|
-    t.integer "user_id"
+    t.integer "owner_id"
     t.string "name_group"
     t.string "description"
     t.string "recent_news"
     t.string "privacy"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_groups_on_user_id"
-    t.index [nil, "created_at"], name: "index_groups_on_owner_id_and_created_at"
+    t.string "avatar"
+    t.string "cover"
+    t.index ["owner_id", "created_at"], name: "index_groups_on_owner_id_and_created_at"
   end
 
   create_table "images", force: :cascade do |t|
@@ -91,6 +94,18 @@ ActiveRecord::Schema.define(version: 20170802072041) do
     t.datetime "updated_at", null: false
     t.index ["post_id", "created_at"], name: "index_images_on_post_id_and_created_at"
     t.index ["post_id"], name: "index_images_on_post_id"
+  end
+
+  create_table "invites", force: :cascade do |t|
+    t.integer "group_id"
+    t.integer "sender_id"
+    t.integer "recipient_id"
+    t.boolean "accepted", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["group_id", "created_at"], name: "index_invites_on_group_id_and_created_at"
+    t.index ["group_id"], name: "index_invites_on_group_id"
+    t.index ["sender_id", "recipient_id"], name: "index_invites_on_sender_id_and_recipient_id", unique: true
   end
 
   create_table "likes", force: :cascade do |t|
@@ -146,9 +161,11 @@ ActiveRecord::Schema.define(version: 20170802072041) do
 
   create_table "posts", force: :cascade do |t|
     t.integer "user_id"
+    t.integer "group_id"
     t.string "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["group_id"], name: "index_posts_on_group_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
     t.index [nil, "created_at"], name: "index_posts_on_follwed_id_and_created_at"
     t.index [nil, "created_at"], name: "index_posts_on_follwer_id_and_created_at"

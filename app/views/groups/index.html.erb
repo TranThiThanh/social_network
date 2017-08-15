@@ -1,0 +1,7 @@
+<div class="search">
+  <%= will_paginate @groups %>
+  <ul class="users">
+    <%= render partial: "groups/group_item", collection: @groups,
+      as: :group %>
+  </ul>
+</div>
