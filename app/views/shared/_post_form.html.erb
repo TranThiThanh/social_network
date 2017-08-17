@@ -1,0 +1,14 @@
+<%= form_for @post, html: {multipart: true}, url: posts_path do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+  <div class="field">
+    <%= f.text_area :content, placeholder: t("post.holder") %>
+    <%= f.hidden_field :group_id %>
+  </div>
+  <%= f.fields_for :image, @post.image.build do |image| %>
+    <div class="field">
+      <%= image.file_field :name_image, multiple: true, name: "image[name_image][]", class: "upload-image" %>
+    </div>
+  <% end %>
+  <%= f.submit t("post.create"), class: "btn btn-primary" %>
+<% end %>
+
