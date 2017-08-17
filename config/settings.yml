@@ -14,3 +14,5 @@ image_maximum: 400
 max_thumb: 220
 min_thumb: 50
 number_of_page: 5
+message_self: "self"
+message_other: "other"

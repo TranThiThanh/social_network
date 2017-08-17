@@ -1,0 +1,23 @@
+<div class="row" id="users">
+  <div class="col-md-3">
+    <div class="panel panel-success">
+      <div class="panel-heading">User online</div>
+      <table class="table table-striped">
+        <tbody>
+          <% if @users.present? %>
+          <% @users.each do |user| %>
+          <tr>
+            <td><%= image_tag user.avatar, class: "ms-image img-circle" %></td>
+            <td><%= user.name %></td>
+            <td>
+              <%= link_to "Send Message", "#", class: "btn btn-success btn-xs start-conversation",
+              data: {"sid": current_user.id, "rip": user.id} %>
+            </td>
+          </tr>
+          <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

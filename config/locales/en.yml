@@ -31,6 +31,7 @@
 
 en:
   controller:
+    login_require: "Please login to continue!"
     message: "Invalid email/password combination"
     flashs: "Please check your email to activate your account."
     not_found_profile: "Profile isn't found"
