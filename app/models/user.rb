@@ -1,8 +1,9 @@
 class User < ApplicationRecord
   attr_accessor :remember_token, :activation_token, :reset_token
-
   before_save   :downcase_email
   before_create :create_activation_digest
+
+  after_create :create_default_conversation
   has_many :post
   has_many :activity_log
   has_many :comment, dependent: :destroy
@@ -22,13 +23,10 @@ class User < ApplicationRecord
   has_many :actor, through: :active_notification, source: :actor
   has_many :recipient, through: :passive_notification, source: :recipient
   has_many :chatroom_user
-  has_many :message
-  has_many :active_conversation, class_name: "Conversation", foreign_key: "recipient_id", dependent: :destroy
-  has_many :passive_conversation, class_name: "Conversation", foreign_key: "sender_id", dependent: :destroy
-  has_many :recipient, through: :active_conversation, source: :recipient
-  has_many :sender, through: :passive_conversation, source: :sender
+  has_many :conversations, :foreign_key => :sender_id
 
-  validates :username, length: {maximum: Settings.username}, presence: true
+  validates :gender, presence: true
+  validates :birthday, presence: true
   validates :first_name, length: {maximum: Settings.fname}, presence: true
   validates :last_name, length: {maximum: Settings.lname}, presence: true
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
@@ -42,6 +40,7 @@ class User < ApplicationRecord
   mount_uploader :cover, Uploader
 
   scope :alphabetize, -> {order(:username)}
+  scope :chronological, -> {order(:created_at => :desc)}
   class << self
     def digest string
       cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
@@ -63,6 +62,10 @@ class User < ApplicationRecord
   def remember
     self.remember_token = User.new_token
     update_attribute :remember_digest, User.digest(remember_token)
+  end
+
+  def name
+    "#{first_name} #{last_name}"
   end
 
   def forget
@@ -137,6 +140,10 @@ class User < ApplicationRecord
     def downcase_email
       self.email = email.downcase
     end
+
+    def create_default_conversation
+    Conversation.create(sender_id: 1, recipient_id: self.id) unless self.id == 1
+  end
 
     def create_activation_digest
       self.activation_token  = User.new_token
